@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ha Vu Duy - Full-Stack Developer</title>
+  <meta name="description"
+    content="Portfolio of Ha Vu Duy, Full-Stack Developer specializing in NestJS, Spring Boot, and Next.js." />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"
+    rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            violet: {
+              50: '#f5f3ff',
+              100: '#ede9fe',
+              400: '#a78bfa',
+              500: '#8b5cf6',
+              600: '#7c3aed',
+              700: '#6d28d9',
+            },
+          },
+          animation: {
+            'float': 'float 4s ease-in-out infinite',
+            'pulse-ring': 'pulseRing 2s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            pulseRing: {
+              '0%, 100%': { opacity: '1', transform: 'scale(1)' },
+              '50%': { opacity: '0.4', transform: 'scale(1.3)' },
+            },
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #7c3aed, #06b6d4, #f59e0b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-bg {
+      background: linear-gradient(135deg, #0f0f23 0%, #1a1035 40%, #0f1729 100%);
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.25;
+      pointer-events: none;
+    }
+
+    .card-hover {
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-3px);
+    }
+
+    .skill-icon-bg {
+      background: linear-gradient(135deg, var(--from), var(--to));
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .avatar-float {
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.5;
+        transform: scale(1.4);
+      }
+    }
+
+    .dot-blink {
+      animation: blink 2s ease-in-out infinite;
+    }
+
+    .timeline-line {
+      position: absolute;
+      left: 19px;
+      top: 40px;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, #7c3aed, #06b6d4, transparent);
+    }
+
+    .section-divider {
+      height: 2px;
+      background: linear-gradient(to right, #7c3aed, #06b6d4, #f59e0b, transparent);
+      border-radius: 9999px;
+      opacity: 0.5;
+      margin-bottom: 32px;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-950 text-slate-100 min-h-screen">
+
+  <!-- ===== HERO ===== -->
+  <header class="hero-bg relative overflow-hidden">
+    <!-- Decorative blobs -->
+    <div class="blob w-96 h-96 bg-violet-600 -top-20 -left-20"></div>
+    <div class="blob w-80 h-80 bg-cyan-500 top-10 right-10"></div>
+    <div class="blob w-64 h-64 bg-fuchsia-500 bottom-0 left-1/3"></div>
+
+    <div class="relative max-w-4xl mx-auto px-6 py-20">
+      <div class="flex items-center justify-between gap-10 flex-wrap">
+
+        <!-- Text -->
+        <div class="flex-1 min-w-[260px]">
+          <!-- Available badge -->
+          <div
+            class="inline-flex items-center gap-2 bg-emerald-950 border border-emerald-700 text-emerald-400 text-xs font-semibold px-3 py-1.5 rounded-full mb-5">
+            <span class="dot-blink w-2 h-2 bg-emerald-400 rounded-full"></span>
+            Available for work
+          </div>
+
+          <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight leading-tight">
+            Ha Vu Duy
+          </h1>
+          <p class="font-mono text-violet-400 text-lg mt-2 mb-4">&lt;Full-Stack Node.js Developer /&gt;</p>
+          <p class="text-slate-400 text-sm leading-relaxed max-w-md">
+            Full-stack engineer with 1 year of hands-on experience building scalable web apps.
+            Strong backend focus: <span class="text-violet-300 font-semibold">NestJS</span>,
+            <span class="text-cyan-300 font-semibold">Spring Boot</span> — paired with
+            <span class="text-amber-300 font-semibold">Next.js</span> on the frontend.
+          </p>
+
+          <!-- Contacts -->
+          <div class="flex flex-wrap gap-3 mt-6">
+            <a href="mailto:duyha8618@gmail.com"
+              class="flex items-center gap-2 text-xs font-medium bg-slate-800 hover:bg-violet-700 border border-slate-700 hover:border-violet-500 text-slate-300 hover:text-white px-4 py-2 rounded-lg transition-all duration-200">
+              <i class="fa-solid fa-envelope text-violet-400"></i> duyha8618@gmail.com
+            </a>
+            <a href="tel:0869529196"
+              class="flex items-center gap-2 text-xs font-medium bg-slate-800 hover:bg-cyan-700 border border-slate-700 hover:border-cyan-500 text-slate-300 hover:text-white px-4 py-2 rounded-lg transition-all duration-200">
+              <i class="fa-solid fa-phone text-cyan-400"></i> 0869529196
+            </a>
+            <a href="https://gitlab.com/duyha1309" target="_blank"
+              class="flex items-center gap-2 text-xs font-medium bg-slate-800 hover:bg-orange-700 border border-slate-700 hover:border-orange-500 text-slate-300 hover:text-white px-4 py-2 rounded-lg transition-all duration-200">
+              <i class="fa-brands fa-gitlab text-orange-400"></i> duyha1309
+            </a>
+          </div>
+        </div>
+
+        <!-- Avatar -->
+        <div class="avatar-float relative w-40 h-40 flex-shrink-0">
+          <div class="w-full h-full rounded-full p-[3px]"
+            style="background: linear-gradient(135deg, #7c3aed, #06b6d4, #f59e0b);">
+            <div class="w-full h-full rounded-full bg-slate-900 flex items-center justify-center">
+              <span class="text-4xl font-extrabold gradient-text">HD</span>
+            </div>
+          </div>
+          <!-- Ring deco -->
+          <div
+            class="absolute inset-[-8px] rounded-full border-2 border-dashed border-violet-500 opacity-30 animate-spin"
+            style="animation-duration: 20s;"></div>
+        </div>
+
+      </div>
+
+      <!-- Stats bar -->
+      <div class="flex flex-wrap gap-6 mt-10 pt-8 border-t border-slate-800">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-briefcase text-violet-400"></i>
+          <span class="text-sm text-slate-400">1 year experience</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-code-branch text-cyan-400"></i>
+          <span class="text-sm text-slate-400">4+ projects shipped</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-graduation-cap text-amber-400"></i>
+          <span class="text-sm text-slate-400">FPT University · 2022–2026</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-language text-emerald-400"></i>
+          <span class="text-sm text-slate-400">English B2</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-6 pb-20">
+
+    <!-- ===== SKILLS ===== -->
+    <section class="pt-14">
+      <div class="flex items-center gap-4 mb-2">
+        <h2 class="text-2xl font-bold flex items-center gap-3">
+          <i class="fa-solid fa-layer-group text-violet-400"></i> Technical Skills
+        </h2>
+      </div>
+      <div class="section-divider"></div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+        <!-- Backend -->
+        <div class="card-hover bg-slate-900 border border-slate-800 hover:border-violet-500 rounded-2xl p-5">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-9 h-9 rounded-xl flex items-center justify-center bg-violet-500/20">
+              <i class="fa-solid fa-server text-violet-400"></i>
+            </div>
+            <h3 class="text-xs font-semibold uppercase tracking-widest text-slate-500">Backend</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span
+              class="bg-violet-500/15 text-violet-300 border border-violet-500/30 text-xs font-medium px-2.5 py-1 rounded-lg">NestJS</span>
+            <span
+              class="bg-violet-500/15 text-violet-300 border border-violet-500/30 text-xs font-medium px-2.5 py-1 rounded-lg">Spring
+              Boot</span>
+            <span
+              class="bg-violet-500/15 text-violet-300 border border-violet-500/30 text-xs font-medium px-2.5 py-1 rounded-lg">CodeIgniter
+              3</span>
+          </div>
+        </div>
+
+        <!-- Frontend -->
+        <div class="card-hover bg-slate-900 border border-slate-800 hover:border-cyan-500 rounded-2xl p-5">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-9 h-9 rounded-xl flex items-center justify-center bg-cyan-500/20">
+              <i class="fa-solid fa-display text-cyan-400"></i>
+            </div>
+            <h3 class="text-xs font-semibold uppercase tracking-widest text-slate-500">Frontend</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span
+              class="bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 text-xs font-medium px-2.5 py-1 rounded-lg">Next.js</span>
+            <span
+              class="bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 text-xs font-medium px-2.5 py-1 rounded-lg">React</span>
+            <span
+              class="bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 text-xs font-medium px-2.5 py-1 rounded-lg">Tailwind
+              CSS</span>
+            <span
+              class="bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 text-xs font-medium px-2.5 py-1 rounded-lg">SCSS</span>
+            <span
+              class="bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 text-xs font-medium px-2.5 py-1 rounded-lg">Ajax</span>
+            <span
+              class="bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 text-xs font-medium px-2.5 py-1 rounded-lg">jQuery</span>
+          </div>
+        </div>
+
+        <!-- Databases -->
+        <div class="card-hover bg-slate-900 border border-slate-800 hover:border-amber-500 rounded-2xl p-5">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-9 h-9 rounded-xl flex items-center justify-center bg-amber-500/20">
+              <i class="fa-solid fa-database text-amber-400"></i>
+            </div>
+            <h3 class="text-xs font-semibold uppercase tracking-widest text-slate-500">Databases</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span
+              class="bg-amber-500/15 text-amber-300 border border-amber-500/30 text-xs font-medium px-2.5 py-1 rounded-lg">PostgreSQL</span>
+            <span
+              class="bg-amber-500/15 text-amber-300 border border-amber-500/30 text-xs font-medium px-2.5 py-1 rounded-lg">MySQL</span>
+          </div>
+        </div>
+
+        <!-- Infrastructure -->
+        <div class="card-hover bg-slate-900 border border-slate-800 hover:border-emerald-500 rounded-2xl p-5">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-9 h-9 rounded-xl flex items-center justify-center bg-emerald-500/20">
+              <i class="fa-solid fa-cubes text-emerald-400"></i>
+            </div>
+            <h3 class="text-xs font-semibold uppercase tracking-widest text-slate-500">Infrastructure</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span
+              class="bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-medium px-2.5 py-1 rounded-lg">Docker</span>
+            <span
+              class="bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-medium px-2.5 py-1 rounded-lg">Redis</span>
+            <span
+              class="bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-medium px-2.5 py-1 rounded-lg">RabbitMQ</span>
+            <span
+              class="bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-medium px-2.5 py-1 rounded-lg">BullMQ</span>
+            <span
+              class="bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-medium px-2.5 py-1 rounded-lg">Socket.IO</span>
+          </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="card-hover bg-slate-900 border border-slate-800 hover:border-pink-500 rounded-2xl p-5">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-9 h-9 rounded-xl flex items-center justify-center bg-pink-500/20">
+              <i class="fa-solid fa-code text-pink-400"></i>
+            </div>
+            <h3 class="text-xs font-semibold uppercase tracking-widest text-slate-500">Languages</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span
+              class="bg-pink-500/15 text-pink-300 border border-pink-500/30 text-xs font-medium px-2.5 py-1 rounded-lg">TypeScript</span>
+            <span
+              class="bg-pink-500/15 text-pink-300 border border-pink-500/30 text-xs font-medium px-2.5 py-1 rounded-lg">JavaScript</span>
+            <span
+              class="bg-pink-500/15 text-pink-300 border border-pink-500/30 text-xs font-medium px-2.5 py-1 rounded-lg">Java</span>
+            <span
+              class="bg-pink-500/15 text-pink-300 border border-pink-500/30 text-xs font-medium px-2.5 py-1 rounded-lg">PHP</span>
+          </div>
+        </div>
+
+        <!-- Tools -->
+        <div class="card-hover bg-slate-900 border border-slate-800 hover:border-orange-500 rounded-2xl p-5">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-9 h-9 rounded-xl flex items-center justify-center bg-orange-500/20">
+              <i class="fa-solid fa-wrench text-orange-400"></i>
+            </div>
+            <h3 class="text-xs font-semibold uppercase tracking-widest text-slate-500">Tools & PM</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span
+              class="bg-orange-500/15 text-orange-300 border border-orange-500/30 text-xs font-medium px-2.5 py-1 rounded-lg">Jira</span>
+            <span
+              class="bg-orange-500/15 text-orange-300 border border-orange-500/30 text-xs font-medium px-2.5 py-1 rounded-lg">SonarQube</span>
+            <span
+              class="bg-orange-500/15 text-orange-300 border border-orange-500/30 text-xs font-medium px-2.5 py-1 rounded-lg">Postman</span>
+            <span
+              class="bg-orange-500/15 text-orange-300 border border-orange-500/30 text-xs font-medium px-2.5 py-1 rounded-lg">Redmine</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== WORK EXPERIENCE ===== -->
+    <section class="pt-14">
+      <div class="flex items-center gap-4 mb-2">
+        <h2 class="text-2xl font-bold flex items-center gap-3">
+          <i class="fa-solid fa-briefcase text-cyan-400"></i> Work Experience
+        </h2>
+      </div>
+      <div class="section-divider"></div>
+
+      <div class="relative">
+        <div class="timeline-line"></div>
+        <div class="space-y-8 pl-12">
+
+          <!-- Agest Vietnam -->
+          <div>
+            <div class="absolute left-0 w-10 h-10 rounded-full flex items-center justify-center"
+              style="background: linear-gradient(135deg, #7c3aed, #06b6d4); box-shadow: 0 0 20px rgba(124,58,237,0.5);">
+              <i class="fa-solid fa-building text-white text-sm"></i>
+            </div>
+
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+              <!-- Header -->
+              <div class="flex flex-wrap justify-between items-start gap-3 mb-5">
+                <div>
+                  <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                    Full-Stack Developer
+                  </h3>
+                  <p class="text-sm text-slate-400 mt-1">
+                    <i class="fa-solid fa-landmark text-violet-400 mr-1"></i>
+                    Agest Vietnam
+                    <span class="text-slate-600 ml-1">— Japanese Outsource</span>
+                  </p>
+                </div>
+                <span
+                  class="font-mono text-xs bg-violet-500/20 text-violet-300 border border-violet-500/40 px-3 py-1.5 rounded-lg">
+                  <i class="fa-regular fa-calendar mr-1"></i>08/2025 – Present
+                </span>
+              </div>
+
+              <!-- Project: Airu World SIM -->
+              <div class="bg-slate-950 border border-slate-800 rounded-xl p-5 mb-4">
+                <div class="flex items-center gap-2 mb-1">
+                  <i class="fa-solid fa-sim-card text-cyan-400"></i>
+                  <h4 class="font-bold text-white">Airu World SIM</h4>
+                  <span
+                    class="text-xs bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 px-2 py-0.5 rounded-full ml-auto">eSIM
+                    Platform</span>
+                </div>
+                <p class="text-xs text-slate-500 mb-3 font-mono">Global eSIM Management Platform</p>
+                <ul class="space-y-1.5 mb-4">
+                  <li class="flex gap-2 text-sm text-slate-400"><i
+                      class="fa-solid fa-chevron-right text-violet-400 mt-0.5 text-xs flex-shrink-0"></i>Multi-role
+                    SIM/eSIM platform (provisioning → termination) across Admin, Agency &amp; Customer portals.</li>
+                  <li class="flex gap-2 text-sm text-slate-400"><i
+                      class="fa-solid fa-chevron-right text-violet-400 mt-0.5 text-xs flex-shrink-0"></i>Integrated
+                    Transatel MVNO API + Sony Payment Gateway (3DS) for secure top-ups.</li>
+                  <li class="flex gap-2 text-sm text-slate-400"><i
+                      class="fa-solid fa-chevron-right text-violet-400 mt-0.5 text-xs flex-shrink-0"></i>Two-pass CSV
+                    bulk import pipeline with chunk-based processing for large-scale SIM provisioning.</li>
+                  <li class="flex gap-2 text-sm text-slate-400"><i
+                      class="fa-solid fa-chevron-right text-violet-400 mt-0.5 text-xs flex-shrink-0"></i>BullMQ
+                    (Redis-backed) for async job decoupling, cron jobs for scheduled batch sync.</li>
+                  <li class="flex gap-2 text-sm text-slate-400"><i
+                      class="fa-solid fa-chevron-right text-violet-400 mt-0.5 text-xs flex-shrink-0"></i>Agency-scoped
+                    access control ensuring strict data isolation between distributors.</li>
+                  <li class="flex gap-2 text-sm text-slate-400"><i
+                      class="fa-solid fa-chevron-right text-violet-400 mt-0.5 text-xs flex-shrink-0"></i>Worked in
+                    <strong class="text-slate-200">Scrum</strong> environment using <strong
+                      class="text-slate-200">Redmine</strong> for task management and sprint tracking.
+                  </li>
+                </ul>
+                <div class="flex flex-wrap gap-1.5 mb-3">
+                  <span class="font-mono text-xs bg-slate-800 text-violet-300 px-2 py-0.5 rounded">Next.js</span>
+                  <span class="font-mono text-xs bg-slate-800 text-violet-300 px-2 py-0.5 rounded">NestJS</span>
+                  <span class="font-mono text-xs bg-slate-800 text-violet-300 px-2 py-0.5 rounded">PostgreSQL</span>
+                  <span class="font-mono text-xs bg-slate-800 text-violet-300 px-2 py-0.5 rounded">Redis</span>
+                  <span class="font-mono text-xs bg-slate-800 text-violet-300 px-2 py-0.5 rounded">BullMQ</span>
+                  <span class="font-mono text-xs bg-slate-800 text-violet-300 px-2 py-0.5 rounded">Docker</span>
+                </div>
+                <div class="flex gap-4 text-xs text-slate-600">
+                  <span><i class="fa-solid fa-users text-slate-500 mr-1"></i>Team: 8</span>
+                  <span><i class="fa-regular fa-clock text-slate-500 mr-1"></i>5 months</span>
+                  <span><i class="fa-solid fa-tag text-slate-500 mr-1"></i>Full-stack</span>
+                </div>
+              </div>
+
+              <!-- Project: SuperSaleAgent -->
+              <div class="bg-slate-950 border border-slate-800 rounded-xl p-5">
+                <div class="flex items-center gap-2 mb-1">
+                  <i class="fa-solid fa-robot text-pink-400"></i>
+                  <h4 class="font-bold text-white">SuperSaleAgent</h4>
+                  <span
+                    class="text-xs bg-pink-500/20 text-pink-300 border border-pink-500/30 px-2 py-0.5 rounded-full ml-auto">AI
+                    Platform</span>
+                </div>
+                <p class="text-xs text-slate-500 mb-3 font-mono">Sales Intelligence Platform</p>
+                <ul class="space-y-1.5 mb-4">
+                  <li class="flex gap-2 text-sm text-slate-400"><i
+                      class="fa-solid fa-chevron-right text-pink-400 mt-0.5 text-xs flex-shrink-0"></i>Cookie-based
+                    authentication supporting concurrent sessions.</li>
+                  <li class="flex gap-2 text-sm text-slate-400"><i
+                      class="fa-solid fa-chevron-right text-pink-400 mt-0.5 text-xs flex-shrink-0"></i>Integrated
+                    Perplexity API for AI-powered sales analysis via BullMQ — preventing timeout on heavy inference.
+                  </li>
+                  <li class="flex gap-2 text-sm text-slate-400"><i
+                      class="fa-solid fa-chevron-right text-pink-400 mt-0.5 text-xs flex-shrink-0"></i>Logging system
+                    for user action tracking and audit compliance.</li>
+                  <li class="flex gap-2 text-sm text-slate-400"><i
+                      class="fa-solid fa-chevron-right text-pink-400 mt-0.5 text-xs flex-shrink-0"></i>Worked in <strong
+                      class="text-slate-200">Scrum</strong> environment using <strong
+                      class="text-slate-200">Redmine</strong> for task management and sprint tracking.</li>
+                </ul>
+                <div class="flex flex-wrap gap-1.5 mb-3">
+                  <span class="font-mono text-xs bg-slate-800 text-pink-300 px-2 py-0.5 rounded">NestJS</span>
+                  <span class="font-mono text-xs bg-slate-800 text-pink-300 px-2 py-0.5 rounded">PostgreSQL</span>
+                  <span class="font-mono text-xs bg-slate-800 text-pink-300 px-2 py-0.5 rounded">Redis</span>
+                  <span class="font-mono text-xs bg-slate-800 text-pink-300 px-2 py-0.5 rounded">BullMQ</span>
+                  <span class="font-mono text-xs bg-slate-800 text-pink-300 px-2 py-0.5 rounded">Docker</span>
+                </div>
+                <div class="flex gap-4 text-xs text-slate-600">
+                  <span><i class="fa-solid fa-users text-slate-500 mr-1"></i>Team: 8</span>
+                  <span><i class="fa-regular fa-clock text-slate-500 mr-1"></i>4 months</span>
+                  <span><i class="fa-solid fa-tag text-slate-500 mr-1"></i>Full-stack</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Scrumpass -->
+          <div>
+            <div class="absolute left-0 w-10 h-10 rounded-full flex items-center justify-center"
+              style="background: linear-gradient(135deg, #06b6d4, #22c55e); box-shadow: 0 0 20px rgba(6,182,212,0.4);">
+              <i class="fa-solid fa-laptop-code text-white text-sm"></i>
+            </div>
+
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+              <div class="flex flex-wrap justify-between items-start gap-3 mb-5">
+                <div>
+                  <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                    Full-Stack Developer
+                    <span
+                      class="text-xs bg-yellow-500/20 text-yellow-300 border border-yellow-500/30 px-2 py-0.5 rounded-full">Remote
+                      · Part-time</span>
+                  </h3>
+                  <p class="text-sm text-slate-400 mt-1">
+                    <i class="fa-solid fa-building text-cyan-400 mr-1"></i>
+                    Scrumpass
+                    <span class="text-slate-600 ml-1">— Product Company</span>
+                  </p>
+                </div>
+                <span
+                  class="font-mono text-xs bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 px-3 py-1.5 rounded-lg">
+                  <i class="fa-regular fa-calendar mr-1"></i>04/2025 – Present
+                </span>
+              </div>
+
+              <!-- ITCertPrep -->
+              <div class="bg-slate-950 border border-slate-800 rounded-xl p-5 mb-4">
+                <div class="flex items-center gap-2 mb-1">
+                  <i class="fa-solid fa-globe text-emerald-400"></i>
+                  <h4 class="font-bold text-white">ITCertPrep</h4>
+                  <span
+                    class="text-xs bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-2 py-0.5 rounded-full ml-auto">Modern</span>
+                </div>
+                <p class="text-xs text-slate-500 mb-3 font-mono">Global IT Certification Exam Practice Platform</p>
+                <ul class="space-y-1.5 mb-4">
+                  <li class="flex gap-2 text-sm text-slate-400"><i
+                      class="fa-solid fa-chevron-right text-emerald-400 mt-0.5 text-xs flex-shrink-0"></i>Real-time
+                    notification &amp; comment system with Socket.IO.</li>
+                  <li class="flex gap-2 text-sm text-slate-400"><i
+                      class="fa-solid fa-chevron-right text-emerald-400 mt-0.5 text-xs flex-shrink-0"></i>Recursive
+                    nested comment structure with multi-level threading.</li>
+                  <li class="flex gap-2 text-sm text-slate-400"><i
+                      class="fa-solid fa-chevron-right text-emerald-400 mt-0.5 text-xs flex-shrink-0"></i>RabbitMQ for
+                    async post-exam tasks — score calculation, answer analytics, AI-powered performance analysis.</li>
+                  <li class="flex gap-2 text-sm text-slate-400"><i
+                      class="fa-solid fa-chevron-right text-emerald-400 mt-0.5 text-xs flex-shrink-0"></i>Worked in
+                    <strong class="text-slate-200">Scrum</strong> environment using <strong
+                      class="text-slate-200">Jira</strong> for task management and sprint tracking.
+                  </li>
+                </ul>
+                <div class="flex flex-wrap gap-1.5 mb-3">
+                  <span class="font-mono text-xs bg-slate-800 text-emerald-300 px-2 py-0.5 rounded">NestJS</span>
+                  <span class="font-mono text-xs bg-slate-800 text-emerald-300 px-2 py-0.5 rounded">Next.js</span>
+                  <span class="font-mono text-xs bg-slate-800 text-emerald-300 px-2 py-0.5 rounded">MySQL</span>
+                  <span class="font-mono text-xs bg-slate-800 text-emerald-300 px-2 py-0.5 rounded">RabbitMQ</span>
+                  <span class="font-mono text-xs bg-slate-800 text-emerald-300 px-2 py-0.5 rounded">Socket.IO</span>
+                  <span class="font-mono text-xs bg-slate-800 text-emerald-300 px-2 py-0.5 rounded">Docker</span>
+                </div>
+                <div class="flex gap-4 text-xs text-slate-600">
+                  <span><i class="fa-solid fa-users text-slate-500 mr-1"></i>Team: 7</span>
+                  <span><i class="fa-regular fa-clock text-slate-500 mr-1"></i>12 months</span>
+                  <a href="https://itcertprep.com" target="_blank"><i
+                      class="fa-solid fa-link text-slate-500 mr-1"></i>itcertprep.com</a>
+                </div>
+              </div>
+
+              <!-- ScrumPass Exam Tool -->
+              <div class="bg-slate-950 border border-slate-800 rounded-xl p-5">
+                <div class="flex items-center gap-2 mb-1">
+                  <i class="fa-solid fa-clipboard-check text-amber-400"></i>
+                  <h4 class="font-bold text-white">ScrumPass Exam Tool</h4>
+                  <span
+                    class="text-xs bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded-full ml-auto">Legacy</span>
+                </div>
+                <p class="text-xs text-slate-500 mb-3 font-mono">IT Certification Exam Practice Platform · 2,000+ active
+                  users</p>
+                <ul class="space-y-1.5 mb-4">
+                  <li class="flex gap-2 text-sm text-slate-400"><i
+                      class="fa-solid fa-chevron-right text-amber-400 mt-0.5 text-xs flex-shrink-0"></i>Maintained and
+                    enhanced certification platform serving 2,000+ users.</li>
+                  <li class="flex gap-2 text-sm text-slate-400"><i
+                      class="fa-solid fa-chevron-right text-amber-400 mt-0.5 text-xs flex-shrink-0"></i>Optimised
+                    dashboard with query tuning & caching strategies.</li>
+                  <li class="flex gap-2 text-sm text-slate-400"><i
+                      class="fa-solid fa-chevron-right text-amber-400 mt-0.5 text-xs flex-shrink-0"></i>Performance
+                    boost for pages with 300,000+ records via indexing, query optimization & pagination.</li>
+                  <li class="flex gap-2 text-sm text-slate-400"><i
+                      class="fa-solid fa-chevron-right text-amber-400 mt-0.5 text-xs flex-shrink-0"></i>Worked in
+                    <strong class="text-slate-200">Scrum</strong> environment using <strong
+                      class="text-slate-200">Jira</strong> for task management and sprint tracking.
+                  </li>
+                </ul>
+                <div class="flex flex-wrap gap-1.5 mb-3">
+                  <span class="font-mono text-xs bg-slate-800 text-amber-300 px-2 py-0.5 rounded">CodeIgniter 3</span>
+                  <span class="font-mono text-xs bg-slate-800 text-amber-300 px-2 py-0.5 rounded">MySQL</span>
+                  <span class="font-mono text-xs bg-slate-800 text-amber-300 px-2 py-0.5 rounded">Tailwind CSS</span>
+                  <span class="font-mono text-xs bg-slate-800 text-amber-300 px-2 py-0.5 rounded">Docker</span>
+                </div>
+                <div class="flex gap-4 text-xs text-slate-600">
+                  <span><i class="fa-solid fa-users text-slate-500 mr-1"></i>Team: 7</span>
+                  <span><i class="fa-regular fa-clock text-slate-500 mr-1"></i>12 months</span>
+                  <span>
+                    <a href="https://scrumpass.com" target="_blank"><i
+                        class="fa-solid fa-link text-slate-500 mr-1"></i>scrumpass.com</a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section class="pt-14">
+      <div class="flex items-center gap-4 mb-2">
+        <h2 class="text-2xl font-bold flex items-center gap-3">
+          <i class="fa-solid fa-rocket text-amber-400"></i> Projects
+        </h2>
+      </div>
+      <div class="section-divider"></div>
+
+      <div class="card-hover bg-slate-900 border border-slate-800 hover:border-amber-500 rounded-2xl p-6 group">
+        <div class="flex items-start justify-between mb-3">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-amber-500/20">
+              <i class="fa-solid fa-book-open text-amber-400"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-white">Online Learning System</h3>
+              <p class="text-xs font-mono text-slate-500 mt-0.5">Full-stack educational platform</p>
+            </div>
+          </div>
+          <a href="#"
+            class="text-xs font-semibold bg-amber-500/20 hover:bg-amber-500/40 text-amber-300 border border-amber-500/30 px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1">
+            <i class="fa-brands fa-github"></i> Source
+          </a>
+        </div>
+        <ul class="space-y-1.5 mb-4 mt-4">
+          <li class="flex gap-2 text-sm text-slate-400"><i
+              class="fa-solid fa-chevron-right text-amber-400 mt-0.5 text-xs flex-shrink-0"></i>Instructor/student
+            modules for course, lesson &amp; quiz management.</li>
+          <li class="flex gap-2 text-sm text-slate-400"><i
+              class="fa-solid fa-chevron-right text-amber-400 mt-0.5 text-xs flex-shrink-0"></i>Quiz engine with
+            auto-submit, countdown timer, and randomisation.</li>
+          <li class="flex gap-2 text-sm text-slate-400"><i
+              class="fa-solid fa-chevron-right text-amber-400 mt-0.5 text-xs flex-shrink-0"></i>Database triggers for
+            learning progress tracking.</li>
+          <li class="flex gap-2 text-sm text-slate-400"><i
+              class="fa-solid fa-chevron-right text-amber-400 mt-0.5 text-xs flex-shrink-0"></i>Used Kanban Board with
+            Jira for task management.</li>
+        </ul>
+        <div class="flex flex-wrap gap-1.5 mb-3">
+          <span class="font-mono text-xs bg-slate-800 text-amber-300 px-2 py-0.5 rounded">Next.js (BlitzJS)</span>
+          <span class="font-mono text-xs bg-slate-800 text-amber-300 px-2 py-0.5 rounded">PostgreSQL</span>
+          <span class="font-mono text-xs bg-slate-800 text-amber-300 px-2 py-0.5 rounded">Socket.IO</span>
+          <span class="font-mono text-xs bg-slate-800 text-amber-300 px-2 py-0.5 rounded">Docker</span>
+        </div>
+        <div class="flex gap-4 text-xs text-slate-600">
+          <span><i class="fa-solid fa-users text-slate-500 mr-1"></i>Team: 5</span>
+          <span><i class="fa-regular fa-clock text-slate-500 mr-1"></i>2 months</span>
+          <span><i class="fa-solid fa-tag text-slate-500 mr-1"></i>Full-stack</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EDUCATION ===== -->
+    <section class="pt-14 pb-4">
+      <div class="flex items-center gap-4 mb-2">
+        <h2 class="text-2xl font-bold flex items-center gap-3">
+          <i class="fa-solid fa-graduation-cap text-emerald-400"></i> Education
+        </h2>
+      </div>
+      <div class="section-divider"></div>
+
+      <div
+        class="card-hover bg-slate-900 border border-slate-800 hover:border-emerald-500 rounded-2xl p-6 flex flex-wrap justify-between items-start gap-4">
+        <div>
+          <div class="flex items-center gap-3 mb-2">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-emerald-500/20">
+              <i class="fa-solid fa-university text-emerald-400"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-white">Software Engineering</h3>
+              <p class="text-sm text-emerald-400 font-semibold">FPT University</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 mt-3 ml-1">
+            <span
+              class="text-xs bg-blue-500/20 text-blue-300 border border-blue-500/30 px-2.5 py-1 rounded-lg flex items-center gap-1.5">
+              <i class="fa-solid fa-language"></i> English B2 — Proficient in technical documentation
+            </span>
+          </div>
+        </div>
+        <span
+          class="font-mono text-xs bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 px-3 py-1.5 rounded-lg self-start">
+          <i class="fa-regular fa-calendar mr-1"></i>10/2022 – 09/2026
+        </span>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800 mt-10 py-6">
+    <div class="max-w-4xl mx-auto px-6 flex flex-wrap justify-between items-center gap-3 text-xs text-slate-600">
+      <span>© 2025 <span class="text-slate-400 font-semibold">Ha Vu Duy</span> · Built with passion</span>
+      <div class="flex gap-4">
+        <a href="mailto:duyha8618@gmail.com" class="hover:text-violet-400 transition-colors"><i
+            class="fa-solid fa-envelope"></i></a>
+        <a href="https://gitlab.com/duyha1309" target="_blank" class="hover:text-orange-400 transition-colors"><i
+            class="fa-brands fa-gitlab"></i></a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
