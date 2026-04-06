@@ -98,21 +98,7 @@
       background: linear-gradient(135deg, var(--from), var(--to));
     }
 
-    @keyframes float {
-
-      0%,
-      100% {
-        transform: translateY(0px);
-      }
-
-      50% {
-        transform: translateY(-10px);
-      }
-    }
-
-    .avatar-float {
-      animation: float 4s ease-in-out infinite;
-    }
+    /* Cleaned up unused avatar animation CSS */
 
     @keyframes blink {
 
@@ -200,18 +186,10 @@
           </div>
         </div>
 
-        <!-- Avatar -->
-        <div class="avatar-float relative w-40 h-40 flex-shrink-0">
-          <div class="w-full h-full rounded-full p-[3px]"
-            style="background: linear-gradient(135deg, #7c3aed, #06b6d4, #f59e0b);">
-            <div class="w-full h-full rounded-full bg-slate-900 flex items-center justify-center">
-              <span class="text-4xl font-extrabold gradient-text">HD</span>
-            </div>
+        <div class="relative w-40 h-full flex-shrink-0">
+          <div class="w-full h-full rounded-2xl overflow-hidden border-2 p-1 bg-slate-900/50">
+            <img src="avatar.png" alt="Ha Vu Duy" class="w-full h-full object-cover rounded-xl" />
           </div>
-          <!-- Ring deco -->
-          <div
-            class="absolute inset-[-8px] rounded-full border-2 border-dashed border-violet-500 opacity-30 animate-spin"
-            style="animation-duration: 20s;"></div>
         </div>
 
       </div>
@@ -224,7 +202,11 @@
         </div>
         <div class="flex items-center gap-2">
           <i class="fa-solid fa-code-branch text-cyan-400"></i>
-          <span class="text-sm text-slate-400">4+ projects shipped</span>
+          <span class="text-sm text-slate-400">Participated in 4 Projects</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-users text-pink-400"></i>
+          <span class="text-sm text-slate-400">Product with 2,000+ Active Users</span>
         </div>
         <div class="flex items-center gap-2">
           <i class="fa-solid fa-graduation-cap text-amber-400"></i>
@@ -261,7 +243,8 @@
           </div>
           <div class="flex flex-wrap gap-2">
             <span
-              class="bg-violet-500/15 text-violet-300 border border-violet-500/30 text-xs font-medium px-2.5 py-1 rounded-lg">NestJS</span>
+              class="bg-violet-500/15 text-violet-300 border border-violet-500/30 text-xs font-medium px-2.5 py-1 rounded-lg">Node.js
+              (NestJS)</span>
             <span
               class="bg-violet-500/15 text-violet-300 border border-violet-500/30 text-xs font-medium px-2.5 py-1 rounded-lg">Spring
               Boot</span>
@@ -309,6 +292,8 @@
               class="bg-amber-500/15 text-amber-300 border border-amber-500/30 text-xs font-medium px-2.5 py-1 rounded-lg">PostgreSQL</span>
             <span
               class="bg-amber-500/15 text-amber-300 border border-amber-500/30 text-xs font-medium px-2.5 py-1 rounded-lg">MySQL</span>
+            <span
+              class="bg-amber-500/15 text-amber-300 border border-amber-500/30 text-xs font-medium px-2.5 py-1 rounded-lg">Redis</span>
           </div>
         </div>
 
@@ -366,11 +351,15 @@
             <span
               class="bg-orange-500/15 text-orange-300 border border-orange-500/30 text-xs font-medium px-2.5 py-1 rounded-lg">Jira</span>
             <span
+              class="bg-orange-500/15 text-orange-300 border border-orange-500/30 text-xs font-medium px-2.5 py-1 rounded-lg">Redmine</span>
+            <span
               class="bg-orange-500/15 text-orange-300 border border-orange-500/30 text-xs font-medium px-2.5 py-1 rounded-lg">SonarQube</span>
             <span
               class="bg-orange-500/15 text-orange-300 border border-orange-500/30 text-xs font-medium px-2.5 py-1 rounded-lg">Postman</span>
             <span
-              class="bg-orange-500/15 text-orange-300 border border-orange-500/30 text-xs font-medium px-2.5 py-1 rounded-lg">Redmine</span>
+              class="bg-orange-500/15 text-orange-300 border border-orange-500/30 text-xs font-medium px-2.5 py-1 rounded-lg">k6</span>
+
+
           </div>
         </div>
 
